@@ -1,5 +1,6 @@
 import 'package:bonfire/bonfire.dart';
 import 'package:flutter/material.dart';
+import 'package:pacman/pacman.dart';
 
 void main() {
   runApp(const MyApp());
@@ -29,6 +30,8 @@ class MyHomePage extends StatelessWidget {
         directional: JoystickDirectional(),
       ), // required
       map: WorldMapByTiled('map/map.json', forceTileSize: Vector2(32, 32)),
+      // showCollisionArea: true,
+      player: PacMan(Vector2(32, 5)),
     );
   }
 }
