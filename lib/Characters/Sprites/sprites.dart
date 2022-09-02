@@ -60,8 +60,8 @@ class PacManSprites {
       );
 }
 
-class GhostSprites {
-  static Future<SpriteAnimation> get ghostRunRight => SpriteAnimation.load(
+class RedGhostSprites {
+  static Future<SpriteAnimation> get runRight => SpriteAnimation.load(
         'red_ghost_right_strip2.png',
         SpriteAnimationData.sequenced(
             amount: 2,
@@ -69,7 +69,7 @@ class GhostSprites {
             textureSize: Vector2(21, 21),
             texturePosition: Vector2(0, 0)),
       );
-  static Future<SpriteAnimation> get ghostIdleRight => SpriteAnimation.load(
+  static Future<SpriteAnimation> get idleRight => SpriteAnimation.load(
         'red_ghost_right_strip2.png',
         SpriteAnimationData.sequenced(
             amount: 2,
@@ -78,7 +78,7 @@ class GhostSprites {
             texturePosition: Vector2(0, 0)),
       );
 
-  static Future<SpriteAnimation> get ghostLeft => SpriteAnimation.load(
+  static Future<SpriteAnimation> get runLeft => SpriteAnimation.load(
         'red_ghost_left_strip2.png',
         SpriteAnimationData.sequenced(
             amount: 2,
@@ -86,15 +86,7 @@ class GhostSprites {
             textureSize: Vector2(21, 21),
             texturePosition: Vector2(0, 0)),
       );
-  static Future<SpriteAnimation> get ghostRight => SpriteAnimation.load(
-        'red_ghost_right_strip2.png',
-        SpriteAnimationData.sequenced(
-            amount: 2,
-            stepTime: 0.15,
-            textureSize: Vector2(21, 21),
-            texturePosition: Vector2(0, 0)),
-      );
-  static Future<SpriteAnimation> get ghostUp => SpriteAnimation.load(
+  static Future<SpriteAnimation> get runUp => SpriteAnimation.load(
         'red_ghost_up_strip2.png',
         SpriteAnimationData.sequenced(
             amount: 2,
@@ -102,8 +94,140 @@ class GhostSprites {
             textureSize: Vector2(21, 21),
             texturePosition: Vector2(0, 0)),
       );
-  static Future<SpriteAnimation> get ghostDown => SpriteAnimation.load(
+  static Future<SpriteAnimation> get runDown => SpriteAnimation.load(
         'red_ghost_down_strip2.png',
+        SpriteAnimationData.sequenced(
+            amount: 2,
+            stepTime: 0.15,
+            textureSize: Vector2(21, 21),
+            texturePosition: Vector2(0, 0)),
+      );
+}
+
+class BlueGhostSprites {
+  static Future<SpriteAnimation> get idleRight => SpriteAnimation.load(
+        'blue_ghost_right_strip2.png',
+        SpriteAnimationData.sequenced(
+            amount: 2,
+            stepTime: 0.15,
+            textureSize: Vector2(21, 21),
+            texturePosition: Vector2(0, 0)),
+      );
+
+  static Future<SpriteAnimation> get runLeft => SpriteAnimation.load(
+        'blue_ghost_left_strip2.png',
+        SpriteAnimationData.sequenced(
+            amount: 2,
+            stepTime: 0.15,
+            textureSize: Vector2(21, 21),
+            texturePosition: Vector2(0, 0)),
+      );
+  static Future<SpriteAnimation> get runRight => SpriteAnimation.load(
+        'blue_ghost_right_strip2.png',
+        SpriteAnimationData.sequenced(
+            amount: 2,
+            stepTime: 0.15,
+            textureSize: Vector2(21, 21),
+            texturePosition: Vector2(0, 0)),
+      );
+  static Future<SpriteAnimation> get runUp => SpriteAnimation.load(
+        'blue_ghost_up_strip2.png',
+        SpriteAnimationData.sequenced(
+            amount: 2,
+            stepTime: 0.15,
+            textureSize: Vector2(21, 21),
+            texturePosition: Vector2(0, 0)),
+      );
+  static Future<SpriteAnimation> get runDown => SpriteAnimation.load(
+        'blue_ghost_down_strip2.png',
+        SpriteAnimationData.sequenced(
+            amount: 2,
+            stepTime: 0.15,
+            textureSize: Vector2(21, 21),
+            texturePosition: Vector2(0, 0)),
+      );
+}
+
+class OrangeGhostSprites {
+  static Future<SpriteAnimation> get idleRight => SpriteAnimation.load(
+        'orange_ghost_right_strip2.png',
+        SpriteAnimationData.sequenced(
+            amount: 2,
+            stepTime: 0.15,
+            textureSize: Vector2(21, 21),
+            texturePosition: Vector2(0, 0)),
+      );
+
+  static Future<SpriteAnimation> get runLeft => SpriteAnimation.load(
+        'orange_ghost_left_strip2.png',
+        SpriteAnimationData.sequenced(
+            amount: 2,
+            stepTime: 0.15,
+            textureSize: Vector2(21, 21),
+            texturePosition: Vector2(0, 0)),
+      );
+  static Future<SpriteAnimation> get runRight => SpriteAnimation.load(
+        'orange_ghost_right_strip2.png',
+        SpriteAnimationData.sequenced(
+            amount: 2,
+            stepTime: 0.15,
+            textureSize: Vector2(21, 21),
+            texturePosition: Vector2(0, 0)),
+      );
+  static Future<SpriteAnimation> get runUp => SpriteAnimation.load(
+        'orange_ghost_up_strip2.png',
+        SpriteAnimationData.sequenced(
+            amount: 2,
+            stepTime: 0.15,
+            textureSize: Vector2(21, 21),
+            texturePosition: Vector2(0, 0)),
+      );
+  static Future<SpriteAnimation> get runDown => SpriteAnimation.load(
+        'orange_ghost_down_strip2.png',
+        SpriteAnimationData.sequenced(
+            amount: 2,
+            stepTime: 0.15,
+            textureSize: Vector2(21, 21),
+            texturePosition: Vector2(0, 0)),
+      );
+}
+
+class PinkGhostSprites {
+  static Future<SpriteAnimation> get idleRight => SpriteAnimation.load(
+        'pink_ghost_right_strip2.png',
+        SpriteAnimationData.sequenced(
+            amount: 2,
+            stepTime: 0.15,
+            textureSize: Vector2(21, 21),
+            texturePosition: Vector2(0, 0)),
+      );
+
+  static Future<SpriteAnimation> get runLeft => SpriteAnimation.load(
+        'pink_ghost_left_strip2.png',
+        SpriteAnimationData.sequenced(
+            amount: 2,
+            stepTime: 0.15,
+            textureSize: Vector2(21, 21),
+            texturePosition: Vector2(0, 0)),
+      );
+  static Future<SpriteAnimation> get runRight => SpriteAnimation.load(
+        'pink_ghost_right_strip2.png',
+        SpriteAnimationData.sequenced(
+            amount: 2,
+            stepTime: 0.15,
+            textureSize: Vector2(21, 21),
+            texturePosition: Vector2(0, 0)),
+      );
+  static Future<SpriteAnimation> get runUp => SpriteAnimation.load(
+        'pink_ghost_up_strip2.png',
+        SpriteAnimationData.sequenced(
+            amount: 2,
+            stepTime: 0.15,
+            textureSize: Vector2(21, 21),
+            texturePosition: Vector2(0, 0)),
+      );
+  static Future<SpriteAnimation> get runDown => SpriteAnimation.load(
+        'pink_ghost_down_strip2.png',
         SpriteAnimationData.sequenced(
             amount: 2,
             stepTime: 0.15,

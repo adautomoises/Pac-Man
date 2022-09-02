@@ -1,12 +1,11 @@
-import 'dart:math';
 import 'package:bonfire/bonfire.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/gestures.dart';
-import 'package:pacman/Characters/ghost.dart';
 import 'package:pacman/Characters/Sprites/sprites.dart';
+import 'package:pacman/Characters/ghosts/blue_ghost.dart';
+import 'package:pacman/Characters/ghosts/orange_ghost.dart';
+import 'package:pacman/Characters/ghosts/pink_ghost.dart';
+import 'package:pacman/Characters/ghosts/red_ghost.dart';
 
 class PacMan extends SimplePlayer with ObjectCollision {
-  MovementDirection _currentMovementDirection = MovementDirection.none;
   bool moves = true;
   bool dead = false;
   int lifes = 3;
@@ -30,6 +29,16 @@ class PacMan extends SimplePlayer with ObjectCollision {
       CollisionArea.rectangle(size: Vector2(22, 22), align: Vector2(6, 6))
     ]));
   }
+  @override
+  bool onCollision(GameComponent component, bool active) {
+    if (component is RedGhost ||
+        component is BlueGhost ||
+        component is PinkGhost ||
+        component is OrangeGhost) {
+      die();
+    }
+    return super.onCollision(component, active);
+  }
 
   @override
   void die() async {
@@ -42,63 +51,7 @@ class PacMan extends SimplePlayer with ObjectCollision {
       idle();
       isVisible = false;
       dead = true;
-      _currentMovementDirection = MovementDirection.none;
     });
     super.die();
   }
-
-  void _movePlayer() {
-    if (!moves) return;
-    switch (_currentMovementDirection) {
-      case MovementDirection.down:
-        moveDown(speed);
-        break;
-
-      case MovementDirection.up:
-        moveUp(speed);
-        break;
-
-      case MovementDirection.left:
-        moveLeft(speed);
-        break;
-
-      case MovementDirection.right:
-        moveRight(speed);
-        break;
-
-      default:
-        idle();
-        break;
-    }
-  }
-
-  @override
-  bool hasGesture() => true;
-
-  @override
-  bool handlerPointerMove(PointerMoveEvent event) {
-    double quarterOfPi = pi / 4;
-    double piMinusQuarter = pi - quarterOfPi;
-    double angle = event.localDelta.direction;
-    if (angle >= -piMinusQuarter && angle <= -quarterOfPi) {
-      _currentMovementDirection = MovementDirection.up;
-    } else if (angle >= quarterOfPi && angle <= piMinusQuarter) {
-      _currentMovementDirection = MovementDirection.down;
-    } else if ((angle >= piMinusQuarter && angle <= pi) ||
-        (angle <= -piMinusQuarter && angle >= -pi)) {
-      _currentMovementDirection = MovementDirection.left;
-    } else if (angle >= -quarterOfPi && angle <= quarterOfPi) {
-      _currentMovementDirection = MovementDirection.right;
-    }
-
-    return super.handlerPointerMove(event);
-  }
-
-  @override
-  void update(double dt) {
-    _movePlayer();
-    super.update(dt);
-  }
 }
-
-enum MovementDirection { none, idle, left, right, up, down }
