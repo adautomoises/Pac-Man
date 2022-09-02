@@ -1,7 +1,10 @@
 import 'package:bonfire/bonfire.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:pacman/ghost.dart';
 import 'package:pacman/pacman.dart';
 
+const double tileSize = 32;
 void main() {
   runApp(const MyApp());
 }
@@ -10,12 +13,9 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const MyHomePage(),
+    return const MaterialApp(
+      home: MyHomePage(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
@@ -26,12 +26,23 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BonfireWidget(
+      gameController: GameController(),
       joystick: Joystick(
-        directional: JoystickDirectional(),
-      ), // required
-      map: WorldMapByTiled('map/map.json', forceTileSize: Vector2(32, 32)),
+        keyboardConfig: KeyboardConfig(
+          enable: true,
+          acceptedKeys: [
+            LogicalKeyboardKey.space,
+          ],
+          keyboardDirectionalType: KeyboardDirectionalType.arrows,
+        ),
+      ),
+      map: WorldMapByTiled('map/map.json',
+          forceTileSize: Vector2(tileSize, tileSize)),
       // showCollisionArea: true,
-      player: PacMan(Vector2(32, 5)),
+      player: PacMan(Vector2(tileSize * 17, tileSize * 7)),
+      components: <GameComponent>[
+        Ghost(Vector2(tileSize * 17, tileSize * 3)),
+      ],
     );
   }
 }

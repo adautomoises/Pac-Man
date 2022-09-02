@@ -5,7 +5,7 @@ class PacMan extends SimplePlayer with ObjectCollision {
   PacMan(Vector2 position)
       : super(
           position: position,
-          size: Vector2(32, 32), //required
+          size: Vector2(32, 32),
           animation: SimpleDirectionAnimation(
             idleRight: PacManSprites.pacmanIdleRight,
             runRight: PacManSprites.pacmanRunRight,
