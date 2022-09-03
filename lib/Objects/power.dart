@@ -1,6 +1,8 @@
 import 'package:bonfire/bonfire.dart';
 import 'package:pacman/Characters/Sprites/sprites.dart';
 
+import '../Characters/pacman.dart';
+
 const double tileSize = 32;
 
 class Power extends GameDecoration with ObjectCollision {
@@ -16,7 +18,9 @@ class Power extends GameDecoration with ObjectCollision {
 
   @override
   bool onCollision(GameComponent component, bool active) {
-    removeFromParent();
+    if (component is PacMan) {
+      removeFromParent();
+    }
     return super.onCollision(component, active);
   }
 }
