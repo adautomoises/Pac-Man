@@ -9,6 +9,7 @@ import 'Characters/ghosts/pink_ghost.dart';
 import 'Characters/ghosts/red_ghost.dart';
 
 const double tileSize = 32;
+bool moves = PacMan.moves;
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
 
@@ -41,7 +42,7 @@ class MyHomePage extends StatelessWidget {
     return BonfireWidget(
       joystick: Joystick(
           keyboardConfig: KeyboardConfig(
-        enable: true,
+        enable: moves,
         acceptedKeys: [
           LogicalKeyboardKey.space,
         ],
@@ -51,16 +52,15 @@ class MyHomePage extends StatelessWidget {
       map: WorldMapByTiled(
         'map/map.json',
         forceTileSize: Vector2(tileSize, tileSize),
-        objectsBuilder: {
-          'blue_ghost': (properties) => BlueGhost(properties.position),
-          'orange_ghost': (properties) => OrangeGhost(properties.position),
-          'pink_ghost': (properties) => PinkGhost(properties.position),
-          'red_ghost': (properties) => RedGhost(properties.position),
-        },
       ),
-      // showCollisionArea: true,
-      player: PacMan(Vector2(tileSize * 17, tileSize * 7)),
-
+      components: [
+        BlueGhost(Vector2(tileSize * 17.5, tileSize * 3)),
+        OrangeGhost(Vector2(tileSize * 17.5, tileSize * 3)),
+        PinkGhost(Vector2(tileSize * 17, tileSize * 3)),
+        RedGhost(Vector2(tileSize * 17, tileSize * 3)),
+      ],
+      showCollisionArea: true,
+      player: PacMan(Vector2(tileSize * 16.8, tileSize * 7)),
       cameraConfig: CameraConfig(moveOnlyMapArea: true),
     );
   }

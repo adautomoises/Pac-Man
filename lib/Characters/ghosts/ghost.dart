@@ -25,7 +25,7 @@ class Ghost extends SimpleEnemy with ObjectCollision, AutomaticRandomMovement {
           position: pos,
           size: Vector2(32, 32),
           life: 100,
-          speed: 50,
+          speed: 20,
           animation: SimpleDirectionAnimation(
             idleRight: idleRight,
             runRight: runRight,
@@ -55,11 +55,11 @@ class Ghost extends SimpleEnemy with ObjectCollision, AutomaticRandomMovement {
       closePlayer: (player) {
         simpleAttackMelee(damage: 100, size: Vector2(0, 0));
       },
-      radiusVision: tileSize * 3,
+      radiusVision: tileSize * 5,
     );
     runRandomMovement(
       dt,
-      speed: 50,
+      speed: 20,
       maxDistance: 400,
       minDistance: 50,
       timeKeepStopped: 50,

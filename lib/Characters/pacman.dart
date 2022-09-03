@@ -6,7 +6,7 @@ import 'package:pacman/Characters/ghosts/pink_ghost.dart';
 import 'package:pacman/Characters/ghosts/red_ghost.dart';
 
 class PacMan extends SimplePlayer with ObjectCollision {
-  bool moves = true;
+  static bool moves = true;
   bool dead = false;
   int lifes = 3;
   PacMan(Vector2 position)
@@ -51,6 +51,7 @@ class PacMan extends SimplePlayer with ObjectCollision {
       idle();
       isVisible = false;
       dead = true;
+      removeFromParent();
     });
     super.die();
   }
