@@ -235,3 +235,25 @@ class PinkGhostSprites {
             texturePosition: Vector2(0, 0)),
       );
 }
+
+class PowerSprites {
+  static Future<SpriteAnimation> get power => SpriteAnimation.load(
+        'power.png',
+        SpriteAnimationData.sequenced(
+            amount: 2,
+            stepTime: 0.15,
+            textureSize: Vector2(32, 32),
+            texturePosition: Vector2(0, 0)),
+      );
+}
+
+class PointSprites {
+  static Future<SpriteAnimation> get point => SpriteAnimation.load(
+        'power.png',
+        SpriteAnimationData.sequenced(
+            amount: 1,
+            stepTime: 0.15,
+            textureSize: Vector2(32, 32),
+            texturePosition: Vector2(0, 0)),
+      );
+}

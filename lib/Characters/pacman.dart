@@ -22,7 +22,6 @@ class PacMan extends SimplePlayer with ObjectCollision {
             runDown: PacManSprites.pacmanDown,
             runUpLeft: PacManSprites.pacmanLeft,
             runUpRight: PacManSprites.pacmanRight,
-            eightDirection: false,
           ),
         ) {
     setupCollision(CollisionConfig(collisions: [
