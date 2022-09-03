@@ -59,7 +59,7 @@ class MyHomePage extends StatelessWidget {
         PinkGhost(Vector2(tileSize * 17, tileSize * 3)),
         RedGhost(Vector2(tileSize * 17, tileSize * 3)),
       ],
-      showCollisionArea: true,
+      // showCollisionArea: true,
       player: PacMan(Vector2(tileSize * 16.8, tileSize * 7)),
       cameraConfig: CameraConfig(moveOnlyMapArea: true),
     );
